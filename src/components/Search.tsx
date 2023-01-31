@@ -1,4 +1,4 @@
-type Props = {};
+import { useSearch } from '../hooks/useSearch';
 
 const FilterIcon = () => (
   <svg
@@ -16,10 +16,15 @@ const FilterIcon = () => (
   </svg>
 );
 
-const Search = (props: Props) => {
+const Search = () => {
+  const { search, setSearch } = useSearch();
   return (
     <div className="flex justify-between search">
-      <input type="search" />
+      <input
+        type="search"
+        value={search}
+        onChange={(e) => setSearch(e.currentTarget.value)}
+      />
       <FilterIcon />
     </div>
   );
