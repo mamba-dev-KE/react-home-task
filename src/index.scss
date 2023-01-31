@@ -6,7 +6,7 @@
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.87);
+  color: white;
   background-color: #242424;
 }
 
@@ -16,21 +16,28 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 500px auto;
+  grid-template-columns: 300px auto;
+  grid-auto-rows: 100vh;
 }
 
 /* sidebar */
 
 .sidebar {
   grid-template-columns: 1 / span 1;
-  border: 2px solid red;
+  border: 2px solid gray;
+
+  p {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: gray;
+  }
 }
 
 /* main */
 
 .main {
   grid-template-columns: 2 / -1;
-  border: 2px solid red;
+  border: 2px solid gray;
 }
 
 /* search */

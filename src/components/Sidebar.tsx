@@ -1,8 +1,9 @@
-
 const Sidebar = () => {
   return (
-    <div className="sidebar">Sidebar</div>
-  )
-}
+    <div className="sidebar">
+      <p>Item Search</p>
+    </div>
+  );
+};
 
-export default Sidebar
+export default Sidebar;
