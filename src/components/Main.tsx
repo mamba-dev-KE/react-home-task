@@ -1,14 +1,24 @@
+import { useSearch } from '../hooks/useSearch';
+import ContentArea from './ContentArea';
+import EmptyContentArea from './EmptyContentArea';
 import Search from './Search';
 
-type Props = {};
+const Main = () => {
+  const { search } = useSearch();
 
-const Main = (props: Props) => {
   return (
     <section className="main">
       <header className="flex justify-between items-center">
-        <div className="item-search">Item Search</div>
+        <div className="main-text">Item Search</div>
         <Search />
       </header>
+      <div className="flex justify-center items-center">
+        {search ? (
+           <ContentArea />
+        ) : (
+          <EmptyContentArea />
+        )}
+      </div>
     </section>
   );
 };
