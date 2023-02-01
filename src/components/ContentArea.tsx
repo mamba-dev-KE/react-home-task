@@ -37,8 +37,6 @@ const ContentArea = () => {
 
   const filteredItems = getFilteredItems();
 
-  console.log(filteredItems.length);
-
   if (error) {
     return <div className="content-area-error">{error.message}</div>;
   }

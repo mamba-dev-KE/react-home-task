@@ -4,7 +4,6 @@ export const fetchItems = async <T,>(url: string): Promise<T | undefined> => {
     const data = await res.json();
 
     if (!res.ok) {
-      console.log(res)
       throw new Error(res.statusText);
     }
     return data as Promise<T>;
