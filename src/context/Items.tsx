@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useState, useEffect } from 'react';
 import { fetchItems } from '../utils';
 
-export const ItemContext = createContext<{
+export const ItemsContext = createContext<{
   items: string[];
 }>({ items: [] });
 
@@ -13,6 +13,6 @@ export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <ItemContext.Provider value={{ items }}>{children}</ItemContext.Provider>
+    <ItemsContext.Provider value={{ items }}>{children}</ItemsContext.Provider>
   );
 };
