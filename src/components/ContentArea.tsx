@@ -105,7 +105,9 @@ const ContentArea = () => {
         </tbody>
       </table>
       {filteredItems.length === 0 && (
-        <p className="content-area-info">{`no results for ${searchByTitle}`}</p>
+        <p className="content-area-info">{`no results ${
+          searchByTitle || searchByOrder
+        }`}</p>
       )}
     </div>
   );
