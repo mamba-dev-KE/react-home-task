@@ -18,10 +18,8 @@ const ContentArea = () => {
 
   const filteredItems = useMemo(
     () =>
-      items.filter(
-        (item) =>
-          item.type.toLowerCase().includes(search.toLowerCase()) ||
-          item.item_no.toString().includes(search.toLowerCase())
+      items.filter((item) =>
+        item.type.toLowerCase().includes(search.toLowerCase())
       ),
     []
   );
