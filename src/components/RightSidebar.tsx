@@ -26,6 +26,10 @@ const RightSidebar = () => {
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
     setSearchByTitle('');
+    setSearchByOrder('');
+    setIsCAO(false);
+    setIsEDF(false);
+    setIsSFO(false);
   };
 
   const handleClose = () => setIsToggled(!isToggled);
