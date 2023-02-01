@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import { useSearch, useToggle } from '../hooks';
 
 const CloseIcon = () => (
@@ -19,11 +19,12 @@ const CloseIcon = () => (
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
-  const { search, setSearch } = useSearch();
+  const { searchByTitle, setSearchByTitle } = useSearch();
+  const [searchByOrder, setSearchByOrder] = useState<string>('');
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
-    setSearch('');
+    setSearchByTitle('');
   };
 
   const handleClose = () => setIsToggled(!isToggled);
@@ -51,8 +52,17 @@ const RightSidebar = () => {
         <input
           type="text"
           id="sidebar-search"
-          value={search}
-          onChange={(e) => setSearch(e.currentTarget.value)}
+          value={searchByTitle}
+          onChange={(e) => setSearchByTitle(e.currentTarget.value)}
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="sidebar-order">Item</label>
+        <input
+          type="text"
+          id="sidebar-order"
+          value={searchByOrder}
+          onChange={(e) => setSearchByOrder(e.currentTarget.value)}
         />
       </div>
     </aside>

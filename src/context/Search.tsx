@@ -1,23 +1,19 @@
-import {
-  ReactNode,
-  createContext,
-  useState,
-} from 'react';
+import { ReactNode, createContext, useState } from 'react';
 
 export const SearchContext = createContext<{
-  search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
-}>({ search: '', setSearch: () => {} });
+  searchByTitle: string;
+  setSearchByTitle: React.Dispatch<React.SetStateAction<string>>;
+}>({ searchByTitle: '', setSearchByTitle: () => {} });
 
 export const SearchContextProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  const [search, setSearch] = useState<string>('');
- 
+  const [searchByTitle, setSearchByTitle] = useState<string>('');
+
   return (
-    <SearchContext.Provider value={{ search, setSearch }}>
+    <SearchContext.Provider value={{ searchByTitle, setSearchByTitle }}>
       {children}
     </SearchContext.Provider>
   );

@@ -14,12 +14,12 @@ const TableHead = () => (
 
 const ContentArea = () => {
   const { items, error } = useItems();
-  const { search } = useSearch();
+  const { searchByTitle } = useSearch();
 
   const getFilteredItems = () => {
     const searchTerms = useMemo(
-      () => search.trim().split(',').filter(Boolean),
-      [search]
+      () => searchByTitle.trim().split(',').filter(Boolean),
+      [searchByTitle]
     );
 
     const filteredItems = useMemo(
@@ -57,7 +57,7 @@ const ContentArea = () => {
         </tbody>
       </table>
       {filteredItems.length === 0 && (
-        <p className="content-area-info">{`no results for ${search}`}</p>
+        <p className="content-area-info">{`no results for ${searchByTitle}`}</p>
       )}
     </div>
   );

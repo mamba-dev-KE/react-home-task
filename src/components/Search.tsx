@@ -17,15 +17,15 @@ const FilterIcon = () => (
 );
 
 const Search = () => {
-  const { search, setSearch } = useSearch();
+  const { searchByTitle, setSearchByTitle } = useSearch();
   const { toggle } = useToggle();
 
   return (
     <div className="flex justify-between search">
       <input
         type="search"
-        value={search}
-        onChange={(e) => setSearch(e.currentTarget.value)}
+        value={searchByTitle}
+        onChange={(e) => setSearchByTitle(e.currentTarget.value)}
         placeholder="Search using item number"
       />
       <div onClick={toggle} className="filter-icon">
