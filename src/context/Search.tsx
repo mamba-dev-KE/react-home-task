@@ -12,11 +12,7 @@ export const SearchContext = createContext<{
   setSearchByOrder: () => {},
 });
 
-export const SearchContextProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
+const SearchContextProvider = ({ children }: { children: ReactNode }) => {
   const [searchByTitle, setSearchByTitle] = useState<string>('');
   const [searchByOrder, setSearchByOrder] = useState<string>('');
 
@@ -33,3 +29,5 @@ export const SearchContextProvider = ({
     </SearchContext.Provider>
   );
 };
+
+export default SearchContextProvider;

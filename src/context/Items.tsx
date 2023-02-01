@@ -15,7 +15,7 @@ export const ItemsContext = createContext<{
   setError: React.Dispatch<React.SetStateAction<Error | null>>;
 }>({ items: [], setItems: () => {}, error: null, setError: () => {} });
 
-export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
+const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<Item[] | undefined>([]);
   const [error, setError] = useState<Error | null>(null);
 
@@ -31,3 +31,5 @@ export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
     </ItemsContext.Provider>
   );
 };
+
+export default ItemContextProvider;

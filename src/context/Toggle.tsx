@@ -6,11 +6,7 @@ export const ToggleContext = createContext<{
   toggle: () => void;
 }>({ isToggled: false, setIsToggled: () => {}, toggle: () => {} });
 
-export const ToggleContextProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
+const ToggleContextProvider = ({ children }: { children: ReactNode }) => {
   const [isToggled, setIsToggled] = useState<boolean>(false);
   const toggle = () => setIsToggled(!isToggled);
 
@@ -20,3 +16,5 @@ export const ToggleContextProvider = ({
     </ToggleContext.Provider>
   );
 };
+
+export default ToggleContextProvider;

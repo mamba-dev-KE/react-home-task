@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { SearchContextProvider } from './context/Search';
-import { ToggleContextProvider } from './context/Toggle';
-import { ItemContextProvider } from './context/Items';
+import { CheckedContextProvider, ItemContextProvider, SearchContextProvider, ToggleContextProvider } from './context';
 import App from './App';
 import './index.scss';
 
@@ -11,7 +9,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <SearchContextProvider>
       <ToggleContextProvider>
         <ItemContextProvider>
-          <App />
+          <CheckedContextProvider>
+            <App />
+          </CheckedContextProvider>
         </ItemContextProvider>
       </ToggleContextProvider>
     </SearchContextProvider>
