@@ -16,7 +16,8 @@ export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
-    fetchItems<Item[]>('http://localhost:5173/data.json').then((data) => setItems(data ?? [])
+    fetchItems<Item[]>('http://localhost:5173/data.json').then((data) =>
+      setItems(data ?? [])
     );
   }, []);
 
