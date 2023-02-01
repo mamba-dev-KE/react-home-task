@@ -78,6 +78,24 @@ main {
 }
 
 .content-area {
+  width: 100%;
+  color: black;
+
+  table {
+    background-color: white;
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid rgb(94, 84, 84);
+    border-collapse: collapse;
+    padding: 1rem;
+  }
+}
+
+.empty-content-area {
   position: absolute;
   top: 50%;
   left: 50%;
