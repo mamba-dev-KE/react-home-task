@@ -1,11 +1,14 @@
 import { MouseEventHandler } from 'react';
-import { useToggle } from '../hooks';
+import { useItems, useSearch, useToggle } from '../hooks';
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
+  const { setItems } = useItems();
+  const { setSearch } = useSearch();
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
+    setSearch('');
   };
 
   return (

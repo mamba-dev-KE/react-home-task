@@ -10,7 +10,8 @@ type Item = {
 
 export const ItemsContext = createContext<{
   items: Item[];
-}>({ items: [] });
+  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
+}>({ items: [], setItems: () => {} });
 
 export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<Item[]>([]);
@@ -22,6 +23,8 @@ export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <ItemsContext.Provider value={{ items }}>{children}</ItemsContext.Provider>
+    <ItemsContext.Provider value={{ items, setItems }}>
+      {children}
+    </ItemsContext.Provider>
   );
 };
