@@ -19,68 +19,52 @@ const ContentArea = () => {
   const { isCAO, isEDF, isSFO } = useChecked();
 
   const getFilteredItems = () => {
-    let searchTerms: string[] = [];
-    let filteredItems: Item[] = [];
+    const filteredItemsFunc = useMemo(() => {
+      let filteredItems: Item[] = items ?? [];
 
-    if (searchByTitle) {
-      searchTerms = useMemo(
-        () => searchByTitle.trim().split(',').filter(Boolean),
-        [searchByTitle]
-      );
-
-      filteredItems = useMemo(
-        () =>
-          (items ?? []).filter((item) =>
-            searchTerms.some((searchTerm) =>
-              item.item_no.toString().toLowerCase().includes(searchTerm)
-            )
-          ),
-        [items, searchTerms]
-      );
-    }
-
-    if (searchByOrder) {
-      searchTerms = useMemo(
-        () => searchByOrder.trim().split(',').filter(Boolean),
-        [searchByOrder]
-      );
-
-      filteredItems = useMemo(
-        () =>
-          (items ?? []).filter((item) =>
-            searchTerms.some((searchTerm) =>
-              item.order_no.toString().toLowerCase().includes(searchTerm)
-            )
-          ),
-        [items, searchTerms]
-      );
-    }
-
-    if (isCAO || isEDF || isSFO) {
-      const typeFilters: string[] = [];
-
-      if (isCAO) {
-        typeFilters.push('CAO');
-      }
-      if (isEDF) {
-        typeFilters.push('EDF');
-      }
-      if (isSFO) {
-        typeFilters.push('SFO');
+      if (searchByTitle) {
+        const searchTerms = searchByTitle.trim().split(',').filter(Boolean);
+        filteredItems = filteredItems.filter((item) =>
+          searchTerms.some((searchTerm) =>
+            item.item_no.toString().toLowerCase().includes(searchTerm)
+          )
+        );
       }
 
-      filteredItems = useMemo(
-        () =>
-          (items ?? []).filter((item) =>
-            typeFilters.some((typeFilter) =>
-              item.type.toLowerCase().includes(typeFilter.toLowerCase())
-            )
-          ),
-        [items, typeFilters]
-      );
-    }
+      if (searchByOrder) {
+        const searchTerms = searchByOrder.trim().split(',').filter(Boolean);
+        filteredItems = filteredItems.filter((item) =>
+          searchTerms.some((searchTerm) =>
+            item.order_no.toString().toLowerCase().includes(searchTerm)
+          )
+        );
+      }
 
-    return filteredItems;
+      if (isCAO || isEDF || isSFO) {
+        const searchTerms = ['CAO', 'EDF', 'SFO'].filter((searchTerm) => {
+          if (searchTerm === 'CAO' && isCAO) {
+            return true;
+          }
+          if (searchTerm === 'EDF' && isEDF) {
+            return true;
+          }
+          if (searchTerm === 'SFO' && isSFO) {
+            return true;
+          }
+          return false;
+        });
+
+        filteredItems = filteredItems.filter((item) =>
+          searchTerms.some((searchTerm) =>
+            item.type.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        );
+      }
+
+      return filteredItems;
+    }, [items, searchByTitle, searchByOrder, isCAO, isEDF, isSFO]);
+
+    return filteredItemsFunc;
   };
 
   let filteredItems: Item[] = getFilteredItems();
