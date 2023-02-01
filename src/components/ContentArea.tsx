@@ -16,20 +16,33 @@ const ContentArea = () => {
   const { items } = useItems();
   const { search } = useSearch();
 
-  const filteredItems = useMemo(
-    () =>
-      items.filter((item) =>
-        item.type.toLowerCase().includes(search.toLowerCase())
-      ),
-    []
-  );
+  const getFilteredItems = () => {
+    const searchTerms = useMemo(
+      () => search.trim().split(',').filter(Boolean),
+      [search]
+    );
+
+    const filteredItems = useMemo(
+      () =>
+        items.filter((item) =>
+          searchTerms.some((searchTerm) =>
+            item.item_no.toString().toLowerCase().includes(searchTerm)
+          )
+        ),
+      [items, searchTerms]
+    );
+
+    return filteredItems;
+  };
+
+  const filteredItems = getFilteredItems();
 
   return (
     <div className="content-area">
       <table>
         <TableHead />
         <tbody>
-          {filteredItems.map(({ id, item_no, order_no, type }) => (
+          {filteredItems?.map(({ id, item_no, order_no, type }) => (
             <tr key={id}>
               <td>{id}</td>
               <td>{order_no}</td>
