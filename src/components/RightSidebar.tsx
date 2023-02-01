@@ -19,9 +19,18 @@ const CloseIcon = () => (
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
-  const { searchByTitle, setSearchByTitle, searchByOrder, setSearchByOrder } =
-    useSearch();
+  const {
+    searchByTitle,
+    setSearchByTitle,
+    searchByOrder,
+    setSearchByOrder,
+    validateSearchByTitle,
+  } = useSearch();
   const { isCAO, setIsCAO, isEDF, setIsEDF, isSFO, setIsSFO } = useChecked();
+
+  const validationError = validateSearchByTitle(searchByTitle);
+
+  console.log(validationError);
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
@@ -54,19 +63,29 @@ const RightSidebar = () => {
 
       <div className="input-groups">
         <div className="input-group">
-          <label htmlFor="sidebar-search">Search by Item #</label>
+          <label htmlFor="sidebar-search">Item #</label>
           <input
             type="text"
             id="sidebar-search"
             value={searchByTitle}
+            placeholder="Search using item number"
             onChange={(e) => setSearchByTitle(e.currentTarget.value)}
           />
+          {validationError === 'EMPTY' ? (
+            <p className="validation validation-info">Search by typing above</p>
+          ) : validationError === 'INVALID' ? (
+            <p className="validation validation-error">
+              Valid characters are letters, numbers, and commas
+            </p>
+          ) : null}
         </div>
         <div className="input-group">
-          <label htmlFor="sidebar-order">Search by Order #</label>
+          <label htmlFor="sidebar-order">Order #</label>
           <input
             type="text"
+            id="sidebar-order"
             value={searchByOrder}
+            placeholder="Search using order number"
             onChange={(e) => setSearchByOrder(e.currentTarget.value)}
           />
         </div>

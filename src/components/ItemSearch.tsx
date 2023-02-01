@@ -17,21 +17,24 @@ const FilterIcon = () => (
 );
 
 const Search = () => {
-  const { searchByTitle, setSearchByTitle } = useSearch();
-  const { toggle } = useToggle();
+  const { searchByTitle, setSearchByTitle, validateSearchByTitle } =
+    useSearch();
+  const { toggle } = useToggle();  
 
   return (
-    <div className="flex justify-between search">
-      <input
-        type="search"
-        value={searchByTitle}
-        onChange={(e) => setSearchByTitle(e.currentTarget.value)}
-        placeholder="Search using item number"
-      />
-      <div onClick={toggle} className="filter-icon cursor-pointer">
-        <FilterIcon />
+    <>
+      <div className="flex justify-between search">
+        <input
+          type="search"
+          value={searchByTitle}
+          onChange={(e) => setSearchByTitle(e.currentTarget.value)}
+          placeholder="Search using item number"
+        />
+        <div onClick={toggle} className="filter-icon cursor-pointer">
+          <FilterIcon />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

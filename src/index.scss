@@ -80,6 +80,25 @@ main {
   }
 }
 
+.validation {
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+  padding: 0.3rem;
+
+  background-color: hsl(0, 0%, 100%);
+  animation: fade-in 200ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  &-error {
+    color: hsl(0, 100%, 50%);
+  }
+
+  &-info {
+    color: hsl(207, 93%, 50%);
+  }
+}
+
 /* main */
 
 .main {
