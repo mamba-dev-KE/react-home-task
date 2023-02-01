@@ -1,26 +1,32 @@
-[{
+[
+  {
     "id": 1,
     "item_no": 1,
     "order_no": 2018,
     "type": "MOA"
-  }, {
+  },
+  {
     "id": 2,
     "item_no": 2,
     "order_no": 9529,
     "type": "MHR"
-  }, {
+  },
+  {
     "id": 3,
     "item_no": 3,
     "order_no": 1208,
     "type": "RCL"
-  }, {
+  },
+  {
     "id": 4,
     "item_no": 4,
     "order_no": 8858,
     "type": "LSE"
-  }, {
+  },
+  {
     "id": 5,
     "item_no": 5,
     "order_no": 7917,
     "type": "PVU"
-  }]
+  }
+]
