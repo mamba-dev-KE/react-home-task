@@ -20,7 +20,7 @@ export const ItemContextProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    fetchItems<Item[]>('http://localhost:5174/data.json')
+    fetchItems<Item[]>('http://localhost:5173/data.json')
       .then((data) => setItems(data))
       .catch((error) => setError(error));
   }, []);

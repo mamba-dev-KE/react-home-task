@@ -56,6 +56,9 @@ const ContentArea = () => {
           ))}
         </tbody>
       </table>
+      {filteredItems.length === 0 && (
+        <p className="content-area-info">{`no results for ${search}`}</p>
+      )}
     </div>
   );
 };
