@@ -1,10 +1,9 @@
 import { MouseEventHandler } from 'react';
-import { useItems, useSearch, useToggle } from '../hooks';
+import { useSearch, useToggle } from '../hooks';
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
-  const { setItems } = useItems();
-  const { setSearch } = useSearch();
+  const { search, setSearch } = useSearch();
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
@@ -21,6 +20,16 @@ const RightSidebar = () => {
       <div className="flex justify-between">
         <p>Set Parameters</p>
         <button onClick={handleResetAll}>Reset All</button>
+      </div>
+
+      <div className="input-group">
+        <label htmlFor="search">Item</label>
+        <input
+          type="text"
+          id="search"
+          value={search}
+          onChange={(e) => setSearch(e.currentTarget.value)}
+        />
       </div>
     </aside>
   );
