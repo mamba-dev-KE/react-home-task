@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { CheckedContextProvider, ItemContextProvider, SearchContextProvider, ToggleContextProvider } from './context';
+import {
+  CheckedContextProvider,
+  ItemContextProvider,
+  SearchContextProvider,
+  ToggleContextProvider,
+} from './context';
 import App from './App';
 import './index.scss';
 

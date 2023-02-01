@@ -25,7 +25,6 @@ const SearchContextProvider = ({ children }: { children: ReactNode }) => {
 
     if (!/^[\w\s.,]+$/.test(searchByTitle)) {
       return 'INVALID';
-      // return 'v';
     }
 
     return '';

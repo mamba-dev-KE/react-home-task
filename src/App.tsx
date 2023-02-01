@@ -1,4 +1,4 @@
-import {LeftSidebar,Main, RightSidebar} from './components';
+import { LeftSidebar, Main, RightSidebar } from './components';
 
 const App = () => {
   return (
@@ -8,6 +8,6 @@ const App = () => {
       <RightSidebar />
     </main>
   );
-}
+};
 
 export default App;
