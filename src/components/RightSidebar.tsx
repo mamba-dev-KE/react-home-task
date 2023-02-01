@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler} from 'react';
 import { useChecked, useSearch, useToggle } from '../hooks';
 
 const CloseIcon = () => (

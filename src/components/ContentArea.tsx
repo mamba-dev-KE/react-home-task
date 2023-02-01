@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useChecked, useItems, useSearch } from '../hooks';
 import { Item } from '../context/Items';
 

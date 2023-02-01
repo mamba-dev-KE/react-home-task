@@ -17,9 +17,8 @@ const FilterIcon = () => (
 );
 
 const Search = () => {
-  const { searchByTitle, setSearchByTitle, validateSearchByTitle } =
-    useSearch();
-  const { toggle } = useToggle();  
+  const { searchByTitle, setSearchByTitle } = useSearch();
+  const { toggle } = useToggle();
 
   return (
     <>
