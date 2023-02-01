@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useItems, useSearch } from '../hooks';
+import { Item } from '../context/Items';
 
 const TableHead = () => (
   <thead>
@@ -14,28 +15,50 @@ const TableHead = () => (
 
 const ContentArea = () => {
   const { items, error } = useItems();
-  const { searchByTitle } = useSearch();
+  const { searchByTitle, searchByOrder } = useSearch();
 
   const getFilteredItems = () => {
-    const searchTerms = useMemo(
-      () => searchByTitle.trim().split(',').filter(Boolean),
-      [searchByTitle]
-    );
+    let searchTerms: string[] = [];
+    let filteredItems: Item[] = [];
 
-    const filteredItems = useMemo(
-      () =>
-        (items ?? []).filter((item) =>
-          searchTerms.some((searchTerm) =>
-            item.item_no.toString().toLowerCase().includes(searchTerm)
-          )
-        ),
-      [items, searchTerms]
-    );
+    if (searchByTitle) {
+      searchTerms = useMemo(
+        () => searchByTitle.trim().split(',').filter(Boolean),
+        [searchByTitle]
+      );
+
+      filteredItems = useMemo(
+        () =>
+          (items ?? []).filter((item) =>
+            searchTerms.some((searchTerm) =>
+              item.item_no.toString().toLowerCase().includes(searchTerm)
+            )
+          ),
+          [items, searchTerms]
+      );
+    }
+
+    if (searchByOrder) {
+      searchTerms = useMemo(
+        () => searchByOrder.trim().split(',').filter(Boolean),
+        [searchByOrder]
+      );
+
+      filteredItems = useMemo(
+        () =>
+          (items ?? []).filter((item) =>
+            searchTerms.some((searchTerm) =>
+              item.order_no.toString().toLowerCase().includes(searchTerm)
+            )
+          ),
+        [items, searchTerms]
+      );
+    }
 
     return filteredItems;
   };
 
-  const filteredItems = getFilteredItems();
+  let filteredItems: Item[] = getFilteredItems();
 
   if (error) {
     return <div className="content-area-error">{error.message}</div>;

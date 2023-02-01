@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useState, useEffect } from 'react';
 import { fetchItems } from '../utils';
 
-type Item = {
+export type Item = {
   id: string;
   item_no: number;
   order_no: number;

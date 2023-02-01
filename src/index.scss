@@ -59,6 +59,7 @@ main {
 
   input {
     padding: 1rem;
+    border-radius: 5px;
   }
 
   svg {
@@ -69,6 +70,8 @@ main {
   .input-group {
     display: grid;
     gap: 1rem;
+
+    margin-top: 1rem;
   }
 }
 

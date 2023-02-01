@@ -19,8 +19,8 @@ const CloseIcon = () => (
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
-  const { searchByTitle, setSearchByTitle } = useSearch();
-  const [searchByOrder, setSearchByOrder] = useState<string>('');
+  const { searchByTitle, setSearchByTitle, searchByOrder, setSearchByOrder } =
+    useSearch();
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
@@ -47,23 +47,24 @@ const RightSidebar = () => {
         </div>
       </div>
 
-      <div className="input-group">
-        <label htmlFor="sidebar-search">Item</label>
-        <input
-          type="text"
-          id="sidebar-search"
-          value={searchByTitle}
-          onChange={(e) => setSearchByTitle(e.currentTarget.value)}
-        />
-      </div>
-      <div className="input-group">
-        <label htmlFor="sidebar-order">Item</label>
-        <input
-          type="text"
-          id="sidebar-order"
-          value={searchByOrder}
-          onChange={(e) => setSearchByOrder(e.currentTarget.value)}
-        />
+      <div className="input-groups">
+        <div className="input-group">
+          <label htmlFor="sidebar-search">Search by Item #</label>
+          <input
+            type="text"
+            id="sidebar-search"
+            value={searchByTitle}
+            onChange={(e) => setSearchByTitle(e.currentTarget.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="sidebar-order">Search by Order #</label>
+          <input
+            type="text"
+            value={searchByOrder}
+            onChange={(e) => setSearchByOrder(e.currentTarget.value)}
+          />
+        </div>
       </div>
     </aside>
   );
