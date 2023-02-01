@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Sidebar from './components/Sidebar';
+import LeftSidebar from './components/LeftSidebar';
 import Main from './components/Main';
 import { fetchItems } from './utils';
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <main className="container grid">
-      <Sidebar />
+      <LeftSidebar />
       <Main />
     </main>
   );

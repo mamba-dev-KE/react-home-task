@@ -1,4 +1,6 @@
+import { MouseEventHandler } from 'react';
 import { useSearch } from '../hooks/useSearch';
+import { useToggle } from '../hooks/useToggle';
 
 const FilterIcon = () => (
   <svg
@@ -18,6 +20,12 @@ const FilterIcon = () => (
 
 const Search = () => {
   const { search, setSearch } = useSearch();
+  const { isToggled, setIsToggled } = useToggle();
+
+  const handleToggle: MouseEventHandler = () => {
+    setIsToggled(!isToggled)
+  }
+
   return (
     <div className="flex justify-between search">
       <input
@@ -25,7 +33,9 @@ const Search = () => {
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}
       />
-      <FilterIcon />
+      <div onClick={handleToggle}>
+        <FilterIcon />
+      </div>
     </div>
   );
 };
