@@ -1,4 +1,4 @@
-import { useSearch } from '../hooks/useSearch';
+import { useSearch } from '../hooks';
 import ContentArea from './ContentArea';
 import EmptyContentArea from './EmptyContentArea';
 import Search from './Search';

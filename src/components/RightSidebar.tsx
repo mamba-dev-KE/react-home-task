@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { useToggle } from '../hooks/useToggle';
+import { useToggle } from '../hooks';
 
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();

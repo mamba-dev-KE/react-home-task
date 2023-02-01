@@ -1,5 +1,4 @@
-import { useSearch } from '../hooks/useSearch';
-import { useToggle } from '../hooks/useToggle';
+import { useSearch, useToggle } from '../hooks';
 
 const FilterIcon = () => (
   <svg
