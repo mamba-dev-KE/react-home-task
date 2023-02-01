@@ -5,7 +5,7 @@ type Item = {
   id: string;
   item_no: number;
   order_no: number;
-  type: 'MOA' | 'MHR' | 'RCL' | 'LSE' | 'PVU';
+  type: 'EDF' | 'CAO' | 'SFO';
 };
 
 export const ItemsContext = createContext<{

@@ -6,8 +6,8 @@ const ContentArea = () => {
 
   const filteredItems = items.filter(
     (item) =>
-      item.type.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-      item.item_no.toString().includes(search.toLocaleLowerCase())
+      item.type.toLowerCase().includes(search.toLowerCase()) ||
+      item.item_no.toString().includes(search.toLowerCase())
   );
 
   return (
