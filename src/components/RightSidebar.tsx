@@ -23,10 +23,10 @@ const RightSidebar = () => {
       </div>
 
       <div className="input-group">
-        <label htmlFor="search">Item</label>
+        <label htmlFor="sidebar-search">Item</label>
         <input
           type="text"
-          id="search"
+          id="sidebar-search"
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
         />
