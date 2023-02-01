@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useChecked, useItems, useSearch } from '../hooks';
 import { Item } from '../context/Items';
 
@@ -18,7 +18,7 @@ const ContentArea = () => {
   const { searchByTitle, searchByOrder } = useSearch();
   const { isCAO, isEDF, isSFO } = useChecked();
 
-  const getFilteredItems = () => {
+  const getFilteredItems = useCallback(() => {
     const filteredItemsFunc = useMemo(() => {
       let filteredItems: Item[] = items ?? [];
 
@@ -65,8 +65,9 @@ const ContentArea = () => {
     }, [items, searchByTitle, searchByOrder, isCAO, isEDF, isSFO]);
 
     return filteredItemsFunc;
-  };
+  }, [items, searchByTitle, searchByOrder, isCAO, isEDF, isSFO]);
 
+ 
   let filteredItems: Item[] = getFilteredItems();
 
   if (error) {
@@ -89,7 +90,7 @@ const ContentArea = () => {
         </tbody>
       </table>
       {filteredItems.length === 0 && (
-        <p className="content-area-info">{`no results ${
+        <p className="content-area-info">{`no results: ${
           searchByTitle || searchByOrder
         }`}</p>
       )}
