@@ -1,5 +1,5 @@
 import { MouseEventHandler, useState } from 'react';
-import { useSearch, useToggle } from '../hooks';
+import { useChecked, useSearch, useToggle } from '../hooks';
 
 const CloseIcon = () => (
   <svg
@@ -21,6 +21,7 @@ const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
   const { searchByTitle, setSearchByTitle, searchByOrder, setSearchByOrder } =
     useSearch();
+  const {} = useChecked();
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
@@ -65,6 +66,23 @@ const RightSidebar = () => {
             onChange={(e) => setSearchByOrder(e.currentTarget.value)}
           />
         </div>
+        <fieldset className="input-group">
+          <legend>Type(multi select)</legend>
+          <div className="flex justify-between">
+            <div className="flex justify-between items-center">
+              <input type="checkbox" id="CAO" name="CAO" value="CAO" />
+              <label htmlFor="coding">CAO</label>
+            </div>
+            <div className="flex justify-between items-center">
+              <input type="checkbox" id="SFO" name="SFO" value="SFO" />
+              <label htmlFor="SFO">SFO</label>
+            </div>
+            <div className="flex justify-between items-center">
+              <input type="checkbox" id="EDF" name="interest" value="EDF" />
+              <label htmlFor="EDF">EDF</label>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </aside>
   );
