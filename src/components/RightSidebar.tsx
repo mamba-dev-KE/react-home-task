@@ -1,6 +1,22 @@
 import { MouseEventHandler } from 'react';
 import { useSearch, useToggle } from '../hooks';
 
+const CloseIcon = () => (
+  <svg
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-6 h-6 cursor-pointer"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
+);
+
 const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
   const { search, setSearch } = useSearch();
@@ -19,7 +35,13 @@ const RightSidebar = () => {
     >
       <div className="flex justify-between">
         <p>Set Parameters</p>
-        <button onClick={handleResetAll}>Reset All</button>
+        <button className="cursor-pointer" onClick={handleResetAll}>
+          Reset All
+        </button>
+
+        <div onClick={() => {}} className="filter-icon">
+          <CloseIcon />
+        </div>
       </div>
 
       <div className="input-group">
