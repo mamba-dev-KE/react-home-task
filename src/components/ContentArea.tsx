@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useItems, useSearch } from '../hooks';
+import { useEffect, useMemo } from 'react';
+import { useChecked, useItems, useSearch } from '../hooks';
 import { Item } from '../context/Items';
 
 const TableHead = () => (
@@ -16,6 +16,7 @@ const TableHead = () => (
 const ContentArea = () => {
   const { items, error } = useItems();
   const { searchByTitle, searchByOrder } = useSearch();
+  const { isCAO, isEDF, isSFO } = useChecked();
 
   const getFilteredItems = () => {
     let searchTerms: string[] = [];
@@ -34,7 +35,7 @@ const ContentArea = () => {
               item.item_no.toString().toLowerCase().includes(searchTerm)
             )
           ),
-          [items, searchTerms]
+        [items, searchTerms]
       );
     }
 
@@ -52,6 +53,30 @@ const ContentArea = () => {
             )
           ),
         [items, searchTerms]
+      );
+    }
+
+    if (isCAO || isEDF || isSFO) {
+      const typeFilters: string[] = [];
+
+      if (isCAO) {
+        typeFilters.push('CAO');
+      }
+      if (isEDF) {
+        typeFilters.push('EDF');
+      }
+      if (isSFO) {
+        typeFilters.push('SFO');
+      }
+
+      filteredItems = useMemo(
+        () =>
+          (items ?? []).filter((item) =>
+            typeFilters.some((typeFilter) =>
+              item.type.toLowerCase().includes(typeFilter.toLowerCase())
+            )
+          ),
+        [items, typeFilters]
       );
     }
 

@@ -1,8 +1,9 @@
-import { useSearch } from '../hooks';
+import { useChecked, useSearch } from '../hooks';
 import { ContentArea, EmptyContentArea, Search } from '.';
 
 const Main = () => {
   const { searchByTitle, searchByOrder } = useSearch();
+  const { isCAO, isSFO, isEDF } = useChecked();
 
   return (
     <section className="main">
@@ -11,7 +12,11 @@ const Main = () => {
         <Search />
       </header>
       <div className="flex justify-center items-center">
-        {searchByTitle || searchByOrder ? <ContentArea /> : <EmptyContentArea />}
+        {searchByTitle || searchByOrder || isCAO || isSFO || isEDF ? (
+          <ContentArea />
+        ) : (
+          <EmptyContentArea />
+        )}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export const CheckedContext = createContext<{
 
 const CheckedContextProvider = ({ children }: { children: ReactNode }) => {
   const [isCAO, setIsCAO] = useState<boolean>(false);
-  const [isSFO, setIsSFO] = useState<boolean>(true);
+  const [isSFO, setIsSFO] = useState<boolean>(false);
   const [isEDF, setIsEDF] = useState<boolean>(false);
 
   return (

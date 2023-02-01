@@ -21,7 +21,7 @@ const RightSidebar = () => {
   const { isToggled, setIsToggled } = useToggle();
   const { searchByTitle, setSearchByTitle, searchByOrder, setSearchByOrder } =
     useSearch();
-  const {} = useChecked();
+  const { isCAO, setIsCAO, isEDF, setIsEDF, isSFO, setIsSFO } = useChecked();
 
   const handleResetAll: MouseEventHandler = () => {
     setIsToggled(!isToggled);
@@ -70,15 +70,36 @@ const RightSidebar = () => {
           <legend>Type(multi select)</legend>
           <div className="flex justify-between">
             <div className="flex justify-between items-center">
-              <input type="checkbox" id="CAO" name="CAO" value="CAO" />
+              <input
+                type="checkbox"
+                id="CAO"
+                name="CAO"
+                value="CAO"
+                checked={isCAO}
+                onChange={() => setIsCAO(!isCAO)}
+              />
               <label htmlFor="coding">CAO</label>
             </div>
             <div className="flex justify-between items-center">
-              <input type="checkbox" id="SFO" name="SFO" value="SFO" />
+              <input
+                type="checkbox"
+                id="SFO"
+                name="SFO"
+                value="SFO"
+                checked={isSFO}
+                onChange={() => setIsSFO(!isSFO)}
+              />
               <label htmlFor="SFO">SFO</label>
             </div>
             <div className="flex justify-between items-center">
-              <input type="checkbox" id="EDF" name="interest" value="EDF" />
+              <input
+                type="checkbox"
+                id="EDF"
+                name="EDF"
+                value="EDF"
+                checked={isEDF}
+                onChange={() => setIsEDF(!isEDF)}
+              />
               <label htmlFor="EDF">EDF</label>
             </div>
           </div>
