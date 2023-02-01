@@ -41,7 +41,7 @@ const RightSidebar = () => {
         transform: !isToggled ? 'translateX(100vh)' : 'translateX(0) ',
       }}
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <p>Set Parameters</p>
         <button className="cursor-pointer" onClick={handleResetAll}>
           Reset All
@@ -72,7 +72,7 @@ const RightSidebar = () => {
         </div>
         <fieldset className="input-group">
           <legend>Type(multi select)</legend>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div className="flex justify-between items-center">
               <input
                 type="checkbox"

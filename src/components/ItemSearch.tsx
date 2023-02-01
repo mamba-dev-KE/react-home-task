@@ -28,7 +28,7 @@ const Search = () => {
         onChange={(e) => setSearchByTitle(e.currentTarget.value)}
         placeholder="Search using item number"
       />
-      <div onClick={toggle} className="filter-icon">
+      <div onClick={toggle} className="filter-icon cursor-pointer">
         <FilterIcon />
       </div>
     </div>

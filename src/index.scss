@@ -55,6 +55,7 @@ main {
     border: 0;
     border-radius: 5px;
     padding: 0.5rem 0.75rem;
+    font-weight: bolder;
   }
 
   input {
@@ -72,6 +73,10 @@ main {
     gap: 1rem;
 
     margin-top: 1rem;
+  }
+
+  fieldset.input-group {
+    padding: 2rem;
   }
 }
 
