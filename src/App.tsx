@@ -1,8 +1,6 @@
-import LeftSidebar from './components/LeftSidebar';
-import RightSidebar from './components/RightSidebar';
-import Main from './components/Main';
+import {LeftSidebar,Main, RightSidebar} from './components';
 
-function App() {
+const App = () => {
   return (
     <main className="container grid">
       <LeftSidebar />
