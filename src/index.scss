@@ -111,14 +111,34 @@ main {
   td {
     animation: fade-in 500ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
   }
+
+  &-error {
+    font-size: 1.2rem;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    background-color: white;
+
+    width: 60%;
+    padding-block: 1rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    animation: fade-in 500ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    text-transform: lowercase;
+  }
 }
 
 .empty-content-area {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
+
+  transform: translate(-50%, -50%);
+  animation: fade-in 500ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 /* search */

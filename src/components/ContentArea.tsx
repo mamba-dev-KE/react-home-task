@@ -13,7 +13,7 @@ const TableHead = () => (
 );
 
 const ContentArea = () => {
-  const { items } = useItems();
+  const { items, error } = useItems();
   const { search } = useSearch();
 
   const getFilteredItems = () => {
@@ -24,7 +24,7 @@ const ContentArea = () => {
 
     const filteredItems = useMemo(
       () =>
-        items.filter((item) =>
+        (items ?? []).filter((item) =>
           searchTerms.some((searchTerm) =>
             item.item_no.toString().toLowerCase().includes(searchTerm)
           )
@@ -36,6 +36,12 @@ const ContentArea = () => {
   };
 
   const filteredItems = getFilteredItems();
+
+  console.log(filteredItems.length);
+
+  if (error) {
+    return <div className="content-area-error">{error.message}</div>;
+  }
 
   return (
     <div className="content-area">

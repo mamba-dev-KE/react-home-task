@@ -2,8 +2,13 @@ export const fetchItems = async <T,>(url: string): Promise<T | undefined> => {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    return data;
+
+    if (!res.ok) {
+      console.log(res)
+      throw new Error(res.statusText);
+    }
+    return data as Promise<T>;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 };
