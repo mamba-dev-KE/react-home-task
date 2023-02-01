@@ -49,8 +49,7 @@ main {
   background-color: hsl(189 15% 27% / 0.85);
   backdrop-filter: blur(10px);
 
-  // transition: transform 200ms ease-in-out;
-  animation: fade-in 1s ease-in;
+  transition: transform 500ms ease-in-out;
 
   button {
     border: 0;
@@ -71,6 +70,10 @@ main {
     font-size: 2rem;
     margin-top: 0.5rem;
     margin-left: 1rem;
+  }
+
+  header {
+    padding: 0.5rem;
   }
 }
 
@@ -107,16 +110,4 @@ main {
 
 .items-center {
   align-items: center;
-}
-
-/* animations */
-
-@keyframes fade-in {
-  0% {
-    opacity: 0.3;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
