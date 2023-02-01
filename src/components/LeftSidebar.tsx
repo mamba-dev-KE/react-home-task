@@ -1,6 +1,6 @@
 const LeftSidebar = () => {
   return (
-    <aside className="sidebar">
+    <aside className="left-sidebar">
       <p>Item Search</p>
     </aside>
   );

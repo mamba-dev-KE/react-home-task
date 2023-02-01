@@ -18,11 +18,14 @@ main {
   display: grid;
   grid-template-columns: 300px auto;
   grid-auto-rows: 100vh;
+
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* sidebar */
+/* sidebars */
 
-.sidebar {
+.left-sidebar {
   grid-template-columns: 1 / span 1;
   border: 2px solid gray;
 
@@ -30,6 +33,29 @@ main {
     margin-top: 3rem;
     padding: 2rem;
     background: gray;
+  }
+}
+
+.right-sidebar {
+  position: absolute;
+  min-height: 100vh;
+  padding: 1rem;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 500px;
+  background-color: hsl(189 15% 27% / 0.85);
+  backdrop-filter: blur(10px);
+
+  // transition: transform 200ms ease-in-out;
+  animation: fade-in 1s ease-in;
+
+  button {
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
   }
 }
 
@@ -81,4 +107,16 @@ main {
 
 .items-center {
   align-items: center;
+}
+
+/* animations */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
