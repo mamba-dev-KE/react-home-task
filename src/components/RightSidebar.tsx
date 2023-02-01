@@ -26,6 +26,8 @@ const RightSidebar = () => {
     setSearch('');
   };
 
+  const handleClose = () => setIsToggled(!isToggled);
+
   return (
     <aside
       className="right-sidebar"
@@ -39,7 +41,7 @@ const RightSidebar = () => {
           Reset All
         </button>
 
-        <div onClick={() => {}} className="filter-icon">
+        <div onClick={handleClose} className="filter-icon">
           <CloseIcon />
         </div>
       </div>
